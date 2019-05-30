@@ -1,0 +1,42 @@
+{
+  "version": "0.0.0",
+  "name": "react-multiversal",
+  "license": "MIT",
+  "devDependencies": {
+    "bs-platform": "^5.0.4",
+    "bs-react-native-monorepo": "https://github.com/reasonml-community/bs-react-native",
+    "husky": "^1.3.1",
+    "lerna": "^3.4.0",
+    "lint-staged": "^8.1.5",
+    "npm-run-all": "^3.0.0",
+    "prettier": "^1.16.4",
+    "reason-react": "^0.7.0"
+  },
+  "scripts": {
+    "prerelease": "yarn prepare",
+    "release": "lerna publish",
+    "format": "yarn format:most && yarn format:re",
+    "format:most": "prettier --write \"**/*.{js,json,css,md}\"",
+    "format:re": "find . -name \"*.re\" -or -name \"*.rei\" | grep -v \"node_modules\" | xargs bsrefmt --in-place",
+    "clean": "bsb -clean-world",
+    "test": "bsb -make-world"
+  },
+  "prettier": {
+    "trailingComma": "all",
+    "proseWrap": "always"
+  },
+  "lint-staged": {
+    "*.{re,rei}": [
+      "bsrefmt --in-place",
+      "git add"
+    ],
+    "*.{js,json,css,md}": [
+      "prettier --write"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}

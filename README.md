@@ -1,2 +1,10 @@
 # react-multiversal
-React components that works everywhere
+
+> React (native) components that works everywhere
+
+- iOS (requires react-native)
+- Android (requires react-native)
+- Web (requires react-native-web)
+- Node (requires react-native-web)
+
+⚠️ WIP
