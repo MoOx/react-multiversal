@@ -1028,9 +1028,9 @@ bs-platform@^5.0.4:
   resolved "https://registry.yarnpkg.com/bs-platform/-/bs-platform-5.0.4.tgz#d406ef43c12d1b19d8546884d8b5b4e0fb709372"
   integrity sha512-rXM+ztN8wYXQ4ojfFGylvPOf8GRLOvM94QJsMMV9VpsLChKCjesWMNybTZvpoyNsESu2nC5q+C9soG+BPhuUFQ==
 
-"bs-react-native-monorepo@https://github.com/reasonml-community/bs-react-native":
+"bs-react-native-monorepo@https://github.com/reasonml-community/bs-react-native.git#91a4371":
   version "0.0.0"
-  resolved "https://github.com/reasonml-community/bs-react-native#bdbdce951da7c01dfd3140deae13af44c3cface5"
+  resolved "https://github.com/reasonml-community/bs-react-native.git#91a437126142bf2a547437ca8d3aaf8f18e118e4"
 
 btoa-lite@^1.0.0:
   version "1.0.0"

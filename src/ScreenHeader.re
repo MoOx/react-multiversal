@@ -7,7 +7,7 @@ let topSpace =
   if (Platform.os === Platform.web) {
     50.; // @todo make this more precise
   } else {
-    ReactNative.Dimensions.get(`window)##height > 640 ? 130. : 110.;
+    Dimensions.get(`window)##height > 640. ? 130. : 110.;
   };
 
 type size =
@@ -52,8 +52,8 @@ let make =
       ~size: size=Large,
       ~children=?,
     ) => {
-  let deviceWidth = Dimensions.get(`window)##width->float;
-  let deviceHeight = Dimensions.get(`window)##height->float;
+  let deviceWidth = Dimensions.get(`window)##width;
+  let deviceHeight = Dimensions.get(`window)##height;
   let child = {
     children
     ->Option.map(children =>
