@@ -24,7 +24,7 @@ let size =
   | Custom(value) => value;
 
 let makeStyle = s => {
-  Style.(style(~width=s->pt, ~height=s->pt, ()));
+  Style.(style(~width=s->dp, ~height=s->dp, ()));
 };
 
 let styles =

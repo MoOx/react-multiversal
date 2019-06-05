@@ -18,7 +18,7 @@ let styles =
           ~flexGrow=1.,
           ~flexShrink=1.,
           ~width=100.->pct,
-          ~paddingHorizontal=(Spacer.space /. 4.)->pt,
+          ~paddingHorizontal=(Spacer.space /. 4.)->dp,
           (),
         ),
     })
@@ -29,7 +29,7 @@ let make =
     (
       ~wrapperStyle=?,
       ~style as styl=?,
-      ~maxWidth as maxW=840.->Style.pt,
+      ~maxWidth as maxW=840.->Style.dp,
       ~children,
       (),
     ) => {

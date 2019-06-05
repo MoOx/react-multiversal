@@ -5,7 +5,7 @@ let styles =
     StyleSheet.create({
       "separator":
         style(
-          ~height=Predefined.hairlineWidth->pt,
+          ~height=Predefined.hairlineWidth->dp,
           ~backgroundColor=Predefined.Colors.separator,
           (),
         ),

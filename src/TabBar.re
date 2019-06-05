@@ -16,13 +16,13 @@ let styles =
         style(
           ~flex=1.,
           ~flexDirection=`row,
-          ~minHeight=tabbarHeight->pt,
+          ~minHeight=tabbarHeight->dp,
           ~alignItems=`center,
           (),
         ),
       "itemWrapper": style(~flex=1., ~justifyContent=`center, ()),
       "item": style(~justifyContent=`center, ~alignItems=`center, ()),
-      "itemText": style(~flex=1., ~fontSize=10., ~marginTop=1.5->pt, ()),
+      "itemText": style(~flex=1., ~fontSize=10., ~marginTop=1.5->dp, ()),
     })
   );
 

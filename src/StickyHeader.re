@@ -10,10 +10,10 @@ let styles =
         style(
           ~zIndex=100,
           ~position=`absolute,
-          ~top=0.->pt,
-          ~left=0.->pt,
-          ~right=0.->pt,
-          ~height=size->pt,
+          ~top=0.->dp,
+          ~left=0.->dp,
+          ~right=0.->dp,
+          ~height=size->dp,
           ~justifyContent=`center,
           ~alignItems=`center,
           (),
@@ -40,9 +40,9 @@ let styles =
       "left":
         style(
           ~position=`absolute,
-          ~top=0.->pt,
-          ~left=10.->pt,
-          ~height=size->pt,
+          ~top=0.->dp,
+          ~left=10.->dp,
+          ~height=size->dp,
           ~justifyContent=`center,
           ~alignItems=`center,
           (),
@@ -50,9 +50,9 @@ let styles =
       "right":
         style(
           ~position=`absolute,
-          ~top=0.->pt,
-          ~right=10.->pt,
-          ~height=size->pt,
+          ~top=0.->dp,
+          ~right=10.->dp,
+          ~height=size->dp,
           ~justifyContent=`center,
           ~alignItems=`center,
           (),

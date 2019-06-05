@@ -38,10 +38,10 @@ let make =
   <View
     style=Style.(
       arrayOption([|
-        vertical->size->Option.map(s => style(~paddingVertical=s->pt, ())),
+        vertical->size->Option.map(s => style(~paddingVertical=s->dp, ())),
         horizontal
         ->size
-        ->Option.map(s => style(~paddingHorizontal=s->pt, ())),
+        ->Option.map(s => style(~paddingHorizontal=s->dp, ())),
         styl,
       |])
     )

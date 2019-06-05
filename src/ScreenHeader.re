@@ -68,14 +68,14 @@ let make =
   let h = containerHeight(size);
   <SpacedView
     vertical=None
-    style=Style.(array([|styles##container, style(~height=h->pt, ())|]))>
+    style=Style.(array([|styles##container, style(~height=h->dp, ())|]))>
     {backgroundSource
      ->Option.map(source =>
          <ImageBackgroundWithBlurFallback
            fallbackSource=?backgroundFallbackSource
            source
-           width={deviceWidth->Style.pt}
-           height={h->Style.pt}
+           width={deviceWidth->Style.dp}
+           height={h->Style.dp}
            style=Style.(
              arrayOption([|
                Some(StyleSheet.absoluteFill),

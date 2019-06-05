@@ -19,9 +19,9 @@
   "bsc-flags": ["-bs-no-version-header"],
   "bs-dependencies": [
     "reason-react",
-    "bs-react-native-monorepo/reason-react-native"
+    "reason-react-native-monorepo/reason-react-native"
   ],
   "js-post-build": {
-    "cmd": "./node_modules/bs-react-native-monorepo/git-monorepo-usage-trick"
+    "cmd": "./node_modules/reason-react-native-monorepo/git-monorepo-usage-trick"
   }
 }

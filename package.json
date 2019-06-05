@@ -4,7 +4,7 @@
   "license": "MIT",
   "devDependencies": {
     "bs-platform": "^5.0.4",
-    "bs-react-native-monorepo": "https://github.com/reasonml-community/bs-react-native.git#91a4371",
+    "reason-react-native-monorepo": "https://github.com/reasonml-community/reason-react-native.git#0fa7e05",
     "husky": "^1.3.1",
     "lint-staged": "^8.1.5",
     "npm-run-all": "^3.0.0",
