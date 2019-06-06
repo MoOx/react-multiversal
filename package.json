@@ -12,7 +12,6 @@
     "reason-react": "^0.7.0"
   },
   "scripts": {
-    "prepare": "yarn build",
     "format": "yarn format:most && yarn format:re",
     "format:most": "prettier --write \"**/*.{js,json,css,md}\"",
     "format:re": "find . -name \"*.re\" -or -name \"*.rei\" | grep -v \"node_modules\" | xargs bsrefmt --in-place",
