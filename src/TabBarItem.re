@@ -30,5 +30,3 @@ let make = (~text, ~icon, ~isActive, ~colorActive, ~colorInactive, ()) => {
     </Text>
   </View>;
 };
-
-let default = make;

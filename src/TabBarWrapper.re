@@ -27,4 +27,12 @@ let make = (~children, ()) => {
   </SafeAreaView>;
 };
 
-let default = make;
+// static placeholder
+// can be used so you can properly scroll to bottom of the page
+// or you can sticky something at the bottom depending on the tabbar visibility
+module Placeholder = {
+  [@react.component]
+  let make = () => {
+    <View style=styles##container />;
+  };
+};
