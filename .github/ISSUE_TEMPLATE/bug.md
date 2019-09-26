@@ -50,7 +50,9 @@ REQUIRED: A clear and concise description of what is currently happening.
 
 ## Environment
 
+<!--
 Please include all necessary versions & relevant informations
+-->
 
 <!--
 OPTIONAL:
