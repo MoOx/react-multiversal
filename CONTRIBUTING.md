@@ -47,8 +47,8 @@ To make a pull request, you need to:
 2. Clone it and install dependencies
 
 ```console
-git clone https://github.com/MoOx/react-multiversal`
-cd __template__
+git clone https://github.com/MoOx/react-multiversal
+cd react-multiversal
 yarn
 ```
 
