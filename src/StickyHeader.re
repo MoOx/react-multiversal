@@ -78,7 +78,7 @@ let make =
       ~backgroundElement=?,
     ) => {
   let insets = ReactNativeSafeAreaContext.useSafeArea();
-  let safeAreaTop = <View style=Style.(style(~height=insets##top, ())) />;
+  let safeAreaTop = <View style=Style.(style(~height=insets##top->dp, ())) />;
   let (
     animatedStickyTranslation,
     animatedOpacityToVisible,

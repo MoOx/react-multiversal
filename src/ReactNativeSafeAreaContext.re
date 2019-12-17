@@ -4,20 +4,20 @@ module SafeAreaProvider = {
     "SafeAreaProvider";
 };
 
-type inset = {
+type insets = {
   .
-  top: float,
-  bottom: float,
-  left: float,
-  right: float,
+  "top": float,
+  "bottom": float,
+  "left": float,
+  "right": float,
 };
 
 [@bs.module "react-native-safe-area-context"]
-external useSafeArea: unit => inset = "useSafeArea";
+external useSafeArea: unit => insets = "useSafeArea";
 
 module SafeAreaConsumer = {
   [@react.component] [@bs.module "react-native-safe-area-context"]
-  external make: (~children: inset => React.element=?) => React.element =
+  external make: (~children: insets => React.element=?) => React.element =
     "SafeAreaConsumer";
 };
 
