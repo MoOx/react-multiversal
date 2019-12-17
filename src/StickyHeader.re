@@ -76,6 +76,8 @@ let make =
       ~color2 as colour2="#000",
       ~animateBackgroundOpacity: [ | `yes | `no | `delayed]=?,
     ) => {
+  let insets = ReactNativeSafeAreaContext.useSafeArea();
+  let safeAreaTop = <View style=Style.(style(~height=insets##top, ())) />;
   let (
     animatedStickyTranslation,
     animatedOpacityToVisible,
@@ -247,7 +249,7 @@ let make =
            style=Style.(
              array([|styles##textWrapper, animatedDelayedOpacityToVisible|])
            )>
-           <SafeArea.Top />
+           safeAreaTop
            <Text style=styles##text numberOfLines=1>
              title->React.string
            </Text>
@@ -265,7 +267,7 @@ let make =
                       animatedDelayedOpacityToTransparent,
                     |])
                   )>
-                  <SafeArea.Top />
+                  safeAreaTop
                   <Row> {left({color: colour})} </Row>
                 </Animated.View>
               : React.null}
@@ -273,7 +275,7 @@ let make =
              style=Style.(
                array([|styles##left, animatedDelayedOpacityToVisible|])
              )>
-             <SafeArea.Top />
+             safeAreaTop
              <Row> {left({color: colour2})} </Row>
            </Animated.View>
          </>
@@ -290,7 +292,7 @@ let make =
                       animatedDelayedOpacityToTransparent,
                     |])
                   )>
-                  <SafeArea.Top />
+                  safeAreaTop
                   <Row> {right({color: colour})} </Row>
                 </Animated.View>
               : React.null}
@@ -298,7 +300,7 @@ let make =
              style=Style.(
                array([|styles##right, animatedDelayedOpacityToVisible|])
              )>
-             <SafeArea.Top />
+             safeAreaTop
              <Row> {right({color: colour2})} </Row>
            </Animated.View>
          </>

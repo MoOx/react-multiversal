@@ -52,5 +52,8 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
+  },
+  "dependencies": {
+    "react-native-safe-area-context": "^0.6.1"
   }
 }
