@@ -54,6 +54,7 @@
     }
   },
   "dependencies": {
+    "@react-native-community/blur": "^3.4.1",
     "react-native-safe-area-context": "^0.6.1"
   }
 }

@@ -75,6 +75,7 @@ let make =
       ~color as colour="#000",
       ~color2 as colour2="#000",
       ~animateBackgroundOpacity: [ | `yes | `no | `delayed]=?,
+      ~backgroundElement=?,
     ) => {
   let insets = ReactNativeSafeAreaContext.useSafeArea();
   let safeAreaTop = <View style=Style.(style(~height=insets##top, ())) />;
@@ -199,48 +200,31 @@ let make =
     );
   <Animated.View
     style=Style.(array([|styles##wrapper, animatedStickyTranslation|]))>
-    {
-      let centerChild =
-        // <>
-        //   <View
-        //     style={Style.array([|
-        //       StyleSheet.absoluteFill,
-        //       styles##overlay,
-        //     |])}
-        //   />
-        //   <BlurView blur=`light style=StyleSheet.absoluteFill />
-        // </>;
-        <BlurView
-          style={ReactDOMRe.Style.make(
-            ~position="absolute",
-            ~top="0",
-            ~bottom="0",
-            ~left="0",
-            ~right="0",
-            (),
-          )}
-        />;
-      switch (animateBackgroundOpacity) {
-      | `yes =>
-        <Animated.View
-          style=Style.(
-            array([|StyleSheet.absoluteFill, animatedOpacityToVisible|])
-          )>
-          centerChild
-        </Animated.View>
-      | `delayed =>
-        <Animated.View
-          style=Style.(
-            array([|
-              StyleSheet.absoluteFill,
-              animatedDelayedOpacityToVisible,
-            |])
-          )>
-          centerChild
-        </Animated.View>
-      | `no => <View style=StyleSheet.absoluteFill> centerChild </View>
-      };
-    }
+    {backgroundElement
+     ->Option.map(backgroundElement =>
+         switch (animateBackgroundOpacity) {
+         | `yes =>
+           <Animated.View
+             style=Style.(
+               array([|StyleSheet.absoluteFill, animatedOpacityToVisible|])
+             )>
+             backgroundElement
+           </Animated.View>
+         | `delayed =>
+           <Animated.View
+             style=Style.(
+               array([|
+                 StyleSheet.absoluteFill,
+                 animatedDelayedOpacityToVisible,
+               |])
+             )>
+             backgroundElement
+           </Animated.View>
+         | `no =>
+           <View style=StyleSheet.absoluteFill> backgroundElement </View>
+         }
+       )
+     ->Option.getWithDefault(React.null)}
     {title
      ->Option.map(title =>
          <Animated.View
