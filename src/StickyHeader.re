@@ -1,13 +1,13 @@
 open Belt;
 open ReactNative;
 
-let size = 44.;
+let size = 44. *. 1.2;
 let scrollOffsetYGap = 10.;
 let styles =
   Style.(
     StyleSheet.create({
       "wrapper":
-        style(
+        viewStyle(
           ~zIndex=100,
           ~position=`absolute,
           ~top=0.->dp,
@@ -18,9 +18,8 @@ let styles =
           ~alignItems=`center,
           (),
         ),
-      "overlay": style(~backgroundColor="rgba(255,255,255,0.8)", ()),
       "textWrapper":
-        style(
+        viewStyle(
           ~borderBottomWidth=Predefined.hairlineWidth,
           ~borderBottomColor="#e2e2e2",
           ~justifyContent=`center,
@@ -30,41 +29,47 @@ let styles =
           (),
         ),
       "text":
-        style(
+        textStyle(
           ~textAlign=`center,
           ~width=50.->pct,
-          ~fontSize=16.,
-          ~fontWeight=`bold,
+          ~fontSize=18.,
+          ~fontWeight=`_600,
           (),
         ),
       "left":
-        style(
+        viewStyle(
           ~position=`absolute,
           ~top=0.->dp,
-          ~left=10.->dp,
+          ~left=20.->dp,
           ~height=size->dp,
           ~justifyContent=`center,
           ~alignItems=`center,
           (),
         ),
+      "leftText": textStyle(~fontSize=17., ~fontWeight=`_600, ()),
       "right":
-        style(
+        viewStyle(
           ~position=`absolute,
           ~top=0.->dp,
-          ~right=10.->dp,
+          ~right=20.->dp,
           ~height=size->dp,
           ~justifyContent=`center,
           ~alignItems=`center,
           (),
         ),
+      "rightText": textStyle(~fontSize=17., ~fontWeight=`_600, ()),
     })
   );
 
-type sideArgs = {color: Color.t};
+type sideArgs = {
+  defaultStyle: Style.t,
+  color: Color.t,
+};
 
 [@react.component]
 let make =
     (
+      ~safeArea=true,
       ~scrollYAnimatedValue=?,
       ~title=?,
       ~scrollOffsetY=?,
@@ -78,7 +83,8 @@ let make =
       ~backgroundElement=?,
     ) => {
   let insets = ReactNativeSafeAreaContext.useSafeArea();
-  let safeAreaTop = <View style=Style.(style(~height=insets##top->dp, ())) />;
+  let safeAreaTopStyle =
+    Style.(safeArea ? style(~height=(size +. insets##top)->dp, ()) : style());
   let (
     animatedStickyTranslation,
     animatedOpacityToVisible,
@@ -101,7 +107,7 @@ let make =
                               config(
                                 ~inputRange=[|0., 1.|],
                                 ~outputRange=[|0., 1.|]->fromFloatArray,
-                                ~extrapolateLeft=`clamp,
+                                ~extrapolateLeft=`identity,
                                 ~extrapolateRight=`identity,
                                 (),
                               ),
@@ -199,14 +205,20 @@ let make =
         ))
     );
   <Animated.View
-    style=Style.(array([|styles##wrapper, animatedStickyTranslation|]))>
+    style=Style.(
+      array([|styles##wrapper, animatedStickyTranslation, safeAreaTopStyle|])
+    )>
     {backgroundElement
      ->Option.map(backgroundElement =>
          switch (animateBackgroundOpacity) {
          | `yes =>
            <Animated.View
              style=Style.(
-               array([|StyleSheet.absoluteFill, animatedOpacityToVisible|])
+               array([|
+                 StyleSheet.absoluteFill,
+                 animatedOpacityToVisible,
+                 //  safeAreaTopStyle,
+               |])
              )>
              backgroundElement
            </Animated.View>
@@ -216,12 +228,18 @@ let make =
                array([|
                  StyleSheet.absoluteFill,
                  animatedDelayedOpacityToVisible,
+                 //  safeAreaTopStyle,
                |])
              )>
              backgroundElement
            </Animated.View>
          | `no =>
-           <View style=StyleSheet.absoluteFill> backgroundElement </View>
+           <View
+             style=Style.(
+               array([|StyleSheet.absoluteFill, safeAreaTopStyle|])
+             )>
+             backgroundElement
+           </View>
          }
        )
      ->Option.getWithDefault(React.null)}
@@ -231,9 +249,12 @@ let make =
            key={Predefined.hairlineWidth->Js.Float.toString}
            // key=Predefined.hairlineWidth is to avoid SSR/hydrate issue
            style=Style.(
-             array([|styles##textWrapper, animatedDelayedOpacityToVisible|])
+             array([|
+               styles##textWrapper,
+               animatedDelayedOpacityToVisible,
+               //  safeAreaTopStyle,
+             |])
            )>
-           safeAreaTop
            <Text style=styles##text numberOfLines=1>
              title->React.string
            </Text>
@@ -249,18 +270,25 @@ let make =
                     array([|
                       styles##left,
                       animatedDelayedOpacityToTransparent,
+                      safeAreaTopStyle,
                     |])
                   )>
-                  safeAreaTop
-                  <Row> {left({color: colour})} </Row>
+                  <Row>
+                    {left({color: colour, defaultStyle: styles##leftText})}
+                  </Row>
                 </Animated.View>
               : React.null}
            <Animated.View
              style=Style.(
-               array([|styles##left, animatedDelayedOpacityToVisible|])
+               array([|
+                 styles##left,
+                 animatedDelayedOpacityToVisible,
+                 safeAreaTopStyle,
+               |])
              )>
-             safeAreaTop
-             <Row> {left({color: colour2})} </Row>
+             <Row>
+               {left({color: colour2, defaultStyle: styles##leftText})}
+             </Row>
            </Animated.View>
          </>
        )
@@ -274,18 +302,25 @@ let make =
                     array([|
                       styles##right,
                       animatedDelayedOpacityToTransparent,
+                      safeAreaTopStyle,
                     |])
                   )>
-                  safeAreaTop
-                  <Row> {right({color: colour})} </Row>
+                  <Row>
+                    {right({color: colour, defaultStyle: styles##rightText})}
+                  </Row>
                 </Animated.View>
               : React.null}
            <Animated.View
              style=Style.(
-               array([|styles##right, animatedDelayedOpacityToVisible|])
+               array([|
+                 styles##right,
+                 animatedDelayedOpacityToVisible,
+                 safeAreaTopStyle,
+               |])
              )>
-             safeAreaTop
-             <Row> {right({color: colour2})} </Row>
+             <Row>
+               {right({color: colour2, defaultStyle: styles##rightText})}
+             </Row>
            </Animated.View>
          </>
        )
