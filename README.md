@@ -13,6 +13,12 @@
 - **Web** (requires `react-native-web`)
 - **Node** (requires `react-native-web`)
 
+## Requirements
+
+- `reason-react`
+- `reason-react-native`
+- `@reason-react-native/safe-area-context`
+
 ## Install
 
 ```console
@@ -30,6 +36,7 @@ yarn add https://github.com/MoOx/react-multiversal
   "bs-dependencies": [
     "reason-react",
     "reason-react-native",
+    "@reason-react-native/safe-area-context",
     // ...
 +    "react-multiversal"
   ],

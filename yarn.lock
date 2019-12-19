@@ -16,6 +16,11 @@
   dependencies:
     prop-types "^15.5.10"
 
+"@reason-react-native/safe-area-context@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@reason-react-native/safe-area-context/-/safe-area-context-0.6.0.tgz#11174e4cbab13a6032bc25e002d9647b1fec3654"
+  integrity sha512-v8Jz86jaBd2AgXt50HZ0Srp9uHGUTRJvDgRrIrRzB11PninmrJ8ai7v8pAEADQhVT31UEWXw1R3hWPq9oVnb9g==
+
 "@samverschueren/stream-to-observable@^0.3.0":
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/@samverschueren/stream-to-observable/-/stream-to-observable-0.3.0.tgz#ecdf48d532c58ea477acfcab80348424f8d0662f"
