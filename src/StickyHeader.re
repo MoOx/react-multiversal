@@ -84,7 +84,15 @@ let make =
     ) => {
   let insets = ReactNativeSafeAreaContext.useSafeArea();
   let safeAreaTopStyle =
-    Style.(safeArea ? style(~height=(size +. insets##top)->dp, ()) : style());
+    Style.(
+      safeArea
+        ? style(
+            ~height=(size +. insets##top)->dp,
+            ~paddingTop=insets##top->dp,
+            (),
+          )
+        : style()
+    );
   let (
     animatedStickyTranslation,
     animatedOpacityToVisible,
