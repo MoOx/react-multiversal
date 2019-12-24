@@ -20,7 +20,6 @@ let styles =
         ),
       "textWrapper":
         viewStyle(
-          ~borderBottomWidth=Predefined.hairlineWidth,
           ~justifyContent=`center,
           ~alignItems=`center,
           ~width=100.->pct,
