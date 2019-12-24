@@ -21,7 +21,6 @@ let styles =
       "textWrapper":
         viewStyle(
           ~borderBottomWidth=Predefined.hairlineWidth,
-          ~borderBottomColor="#e2e2e2",
           ~justifyContent=`center,
           ~alignItems=`center,
           ~width=100.->pct,
@@ -81,6 +80,7 @@ let make =
       ~color2 as colour2="#000",
       ~animateBackgroundOpacity: [ | `yes | `no | `delayed]=?,
       ~backgroundElement=?,
+      ~style as additionalStyle=?,
     ) => {
   let insets = ReactNativeSafeAreaContext.useSafeArea();
   let safeAreaTopStyle =
@@ -257,11 +257,12 @@ let make =
            key={Predefined.hairlineWidth->Js.Float.toString}
            // key=Predefined.hairlineWidth is to avoid SSR/hydrate issue
            style=Style.(
-             array([|
-               styles##textWrapper,
-               animatedDelayedOpacityToVisible,
+             listOption([
+               Some(styles##textWrapper),
+               Some(animatedDelayedOpacityToVisible),
+               additionalStyle,
                //  safeAreaTopStyle,
-             |])
+             ])
            )>
            <Text style=styles##text numberOfLines=1>
              title->React.string
