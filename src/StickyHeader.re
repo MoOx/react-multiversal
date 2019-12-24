@@ -80,6 +80,7 @@ let make =
       ~animateBackgroundOpacity: [ | `yes | `no | `delayed]=?,
       ~backgroundElement=?,
       ~style as additionalStyle=?,
+      ~textStyle as additionalTextStyle=?,
     ) => {
   let insets = ReactNativeSafeAreaContext.useSafeArea();
   let safeAreaTopStyle =
@@ -263,7 +264,11 @@ let make =
                //  safeAreaTopStyle,
              ])
            )>
-           <Text style=styles##text numberOfLines=1>
+           <Text
+             style=Style.(
+               listOption([Some(styles##text), additionalTextStyle])
+             )
+             numberOfLines=1>
              title->React.string
            </Text>
          </Animated.View>
