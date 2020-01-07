@@ -77,6 +77,7 @@ let make =
       ~rightAlwaysVisible=false,
       ~color as colour="#000",
       ~color2 as colour2="#000",
+      ~animateTranslateY=true,
       ~animateBackgroundOpacity: [ | `yes | `no | `delayed]=?,
       ~backgroundElement=?,
       ~style as additionalStyle=?,
@@ -103,29 +104,31 @@ let make =
       scrollYAnimatedValue
       ->Option.map(scrollYAnimatedValue => {
           let animatedStickyTranslation =
-            Platform.os == Platform.web
-              ? unsafeStyle({"position": "fixed"})
-              : style(
-                  ~transform=[|
-                    translateY(
-                      ~translateY=
-                        scrollYAnimatedValue
-                        ->Animated.Interpolation.(
-                            interpolate(
-                              config(
-                                ~inputRange=[|0., 1.|],
-                                ~outputRange=[|0., 1.|]->fromFloatArray,
-                                ~extrapolateLeft=`identity,
-                                ~extrapolateRight=`identity,
-                                (),
-                              ),
-                            )
-                          )
-                        ->Animated.StyleProp.float,
-                    ),
-                  |],
-                  (),
-                );
+            !animateTranslateY
+              ? style()
+              : Platform.os == Platform.web
+                  ? unsafeStyle({"position": "fixed"})
+                  : style(
+                      ~transform=[|
+                        translateY(
+                          ~translateY=
+                            scrollYAnimatedValue
+                            ->Animated.Interpolation.(
+                                interpolate(
+                                  config(
+                                    ~inputRange=[|0., 1.|],
+                                    ~outputRange=[|0., 1.|]->fromFloatArray,
+                                    ~extrapolateLeft=`identity,
+                                    ~extrapolateRight=`identity,
+                                    (),
+                                  ),
+                                )
+                              )
+                            ->Animated.StyleProp.float,
+                        ),
+                      |],
+                      (),
+                    );
           let animatedOpacityToVisible =
             style(
               ~opacity=
