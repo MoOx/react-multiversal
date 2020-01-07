@@ -81,6 +81,7 @@ let make =
       ~animateBackgroundOpacity: [ | `yes | `no | `delayed]=?,
       ~backgroundElement=?,
       ~style as additionalStyle=?,
+      ~titleStyle as additionalTitleStyle=?,
       ~textStyle as additionalTextStyle=?,
     ) => {
   let insets = ReactNativeSafeAreaContext.useSafeArea();
@@ -217,7 +218,12 @@ let make =
     );
   <Animated.View
     style=Style.(
-      array([|styles##wrapper, animatedStickyTranslation, safeAreaTopStyle|])
+      arrayOption([|
+        Some(styles##wrapper),
+        Some(animatedStickyTranslation),
+        Some(safeAreaTopStyle),
+        additionalStyle,
+      |])
     )>
     {backgroundElement
      ->Option.map(backgroundElement =>
@@ -263,7 +269,7 @@ let make =
              listOption([
                Some(styles##textWrapper),
                Some(animatedDelayedOpacityToVisible),
-               additionalStyle,
+               additionalTitleStyle,
                //  safeAreaTopStyle,
              ])
            )>
