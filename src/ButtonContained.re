@@ -1,20 +1,19 @@
 open ReactNative;
 
 let styles =
-  Style.(
-    StyleSheet.create({
-      "container":
-        style(
-          ~borderRadius=6.,
-          ~justifyContent=`center,
-          ~alignItems=`center,
-          ~borderWidth=1.,
-          (),
-        ),
-      "rounded": style(~borderRadius=100., ()),
-      "row": style(~flexDirection=`row, ~alignItems=`center, ()),
-    })
-  );
+  Style.{
+    "container":
+      style(
+        ~borderRadius=6.,
+        ~justifyContent=`center,
+        ~alignItems=`center,
+        ~borderWidth=1.,
+        (),
+      ),
+    "rounded": style(~borderRadius=100., ()),
+    "row": style(~flexDirection=`row, ~alignItems=`center, ()),
+  }
+  ->StyleSheet.create;
 
 [@react.component]
 let make =

@@ -1,12 +1,11 @@
 open ReactNative;
 
 let styles =
-  Style.(
-    StyleSheet.create({
-      "imageContainer": style(~display=`flex, ~overflow=`hidden, ()),
-      "image": style(~backgroundColor=Predefined.Colors.lightGrey, ()),
-    })
-  );
+  Style.{
+    "imageContainer": style(~display=`flex, ~overflow=`hidden, ()),
+    "image": style(~backgroundColor=Predefined.Colors.lightGrey, ()),
+  }
+  ->StyleSheet.create;
 
 [@react.component]
 let make = (~uri, ~ratio, ~style as styl=?, ()) => {

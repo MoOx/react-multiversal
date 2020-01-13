@@ -20,13 +20,12 @@ let containerHeight =
   | Large => topSpace +. 44.;
 
 let styles =
-  Style.(
-    StyleSheet.create({
-      "container": style(~zIndex=1, ~justifyContent=`flexEnd, ()),
-      "title": style(),
-      "children": style(~zIndex=1, ()),
-    })
-  );
+  Style.{
+    "container": style(~zIndex=1, ~justifyContent=`flexEnd, ()),
+    "title": style(),
+    "children": style(~zIndex=1, ()),
+  }
+  ->StyleSheet.create;
 
 let prerenderedGradient =
   <View style=StyleSheet.absoluteFill>

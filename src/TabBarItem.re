@@ -1,12 +1,11 @@
 open ReactNative;
 
 let styles =
-  Style.(
-    StyleSheet.create({
-      "item": viewStyle(~justifyContent=`center, ~alignItems=`center, ()),
-      "text": textStyle(~flex=1., ~fontSize=10., ~marginTop=1.5->dp, ()),
-    })
-  );
+  Style.{
+    "item": viewStyle(~justifyContent=`center, ~alignItems=`center, ()),
+    "text": textStyle(~flex=1., ~fontSize=10., ~marginTop=1.5->dp, ()),
+  }
+  ->StyleSheet.create;
 
 [@react.component]
 let make = (~text, ~icon, ~isActive, ~colorActive, ~colorInactive, ()) => {

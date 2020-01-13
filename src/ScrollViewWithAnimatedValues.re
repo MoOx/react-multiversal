@@ -1,7 +1,6 @@
 open ReactNative;
 
-let styles =
-  Style.(StyleSheet.create({"container": viewStyle(~flex=1., ())}));
+let styles = Style.{"container": viewStyle(~flex=1., ())}->StyleSheet.create;
 
 type renderArgs = {
   scrollXAnimatedValue: Animated.Value.t,

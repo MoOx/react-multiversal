@@ -1,16 +1,15 @@
 open ReactNative;
 
 let styles =
-  Style.(
-    StyleSheet.create({
-      "separator":
-        style(
-          ~height=Predefined.hairlineWidth->dp,
-          ~backgroundColor=Predefined.Colors.separator,
-          (),
-        ),
-    })
-  );
+  Style.{
+    "separator":
+      style(
+        ~height=Predefined.hairlineWidth->dp,
+        ~backgroundColor=Predefined.Colors.separator,
+        (),
+      ),
+  }
+  ->StyleSheet.create;
 
 [@react.component]
 let make = (~style as s=?) => {

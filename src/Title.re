@@ -1,17 +1,16 @@
 open ReactNative;
 
 let styles =
-  Style.(
-    StyleSheet.create({
-      "title":
-        style(
-          ~fontSize=34.,
-          ~fontWeight=`_700,
-          ~color=Predefined.Colors.dark,
-          (),
-        ),
-    })
-  );
+  Style.{
+    "title":
+      style(
+        ~fontSize=34.,
+        ~fontWeight=`_700,
+        ~color=Predefined.Colors.dark,
+        (),
+      ),
+  }
+  ->StyleSheet.create;
 
 [@react.component]
 let make = (~style as s=?, ~children) => {

@@ -111,58 +111,57 @@ module Colors = {
 };
 
 let styles =
-  Style.(
-    StyleSheet.create({
-      "flex": style(~flex=1., ()),
-      "flexGrow": style(~flexGrow=1., ()),
-      "flexShrink": style(~flexShrink=1., ()),
-      "center": style(~alignItems=`center, ~justifyContent=`center, ()),
-      "col": style(~flexDirection=`column, ()),
-      "colCenter":
-        style(
-          ~flexDirection=`column,
-          ~justifyContent=`center,
-          ~alignItems=`center,
-          (),
-        ),
-      "colSpaceBetween":
-        style(
-          ~flexDirection=`column,
-          ~justifyContent=`spaceBetween,
-          ~alignItems=`center,
-          (),
-        ),
-      "row": style(~flexDirection=`row, ()),
-      "rowCenter":
-        style(
-          ~flexDirection=`row,
-          ~justifyContent=`center,
-          ~alignItems=`center,
-          (),
-        ),
-      "rowSpaceBetween":
-        style(
-          ~flexDirection=`row,
-          ~justifyContent=`spaceBetween,
-          ~alignItems=`center,
-          (),
-        ),
-      "rowWrap": style(~flexDirection=`row, ~flexWrap=`wrap, ()),
-      "rowWrapCenter":
-        style(
-          ~flexDirection=`row,
-          ~flexWrap=`wrap,
-          ~justifyContent=`center,
-          ~alignItems=`center,
-          (),
-        ),
-      "rowWrapSpaceBetween":
-        style(
-          ~flexDirection=`row,
-          ~flexWrap=`wrap,
-          ~justifyContent=`spaceBetween,
-          ~alignItems=`center,
-          (),
-        ),
-    })
-  );
+  Style.{
+    "flex": style(~flex=1., ()),
+    "flexGrow": style(~flexGrow=1., ()),
+    "flexShrink": style(~flexShrink=1., ()),
+    "center": style(~alignItems=`center, ~justifyContent=`center, ()),
+    "col": style(~flexDirection=`column, ()),
+    "colCenter":
+      style(
+        ~flexDirection=`column,
+        ~justifyContent=`center,
+        ~alignItems=`center,
+        (),
+      ),
+    "colSpaceBetween":
+      style(
+        ~flexDirection=`column,
+        ~justifyContent=`spaceBetween,
+        ~alignItems=`center,
+        (),
+      ),
+    "row": style(~flexDirection=`row, ()),
+    "rowCenter":
+      style(
+        ~flexDirection=`row,
+        ~justifyContent=`center,
+        ~alignItems=`center,
+        (),
+      ),
+    "rowSpaceBetween":
+      style(
+        ~flexDirection=`row,
+        ~justifyContent=`spaceBetween,
+        ~alignItems=`center,
+        (),
+      ),
+    "rowWrap": style(~flexDirection=`row, ~flexWrap=`wrap, ()),
+    "rowWrapCenter":
+      style(
+        ~flexDirection=`row,
+        ~flexWrap=`wrap,
+        ~justifyContent=`center,
+        ~alignItems=`center,
+        (),
+      ),
+    "rowWrapSpaceBetween":
+      style(
+        ~flexDirection=`row,
+        ~flexWrap=`wrap,
+        ~justifyContent=`spaceBetween,
+        ~alignItems=`center,
+        (),
+      ),
+  }
+  ->StyleSheet.create;

@@ -28,7 +28,7 @@ let makeStyle = s => {
 };
 
 let styles =
-  StyleSheet.create({
+  {
     "xxl": makeStyle(XXL->size),
     "xl": makeStyle(XL->size),
     "l": makeStyle(L->size),
@@ -36,7 +36,8 @@ let styles =
     "s": makeStyle(S->size),
     "xs": makeStyle(XS->size),
     "xxs": makeStyle(XXS->size),
-  });
+  }
+  ->StyleSheet.create;
 
 [@react.component]
 let make = (~size: size=M, ~style as styl=?, ()) =>

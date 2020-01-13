@@ -1,24 +1,23 @@
 open ReactNative;
 
 let styles =
-  Style.(
-    StyleSheet.create({
-      "wrapper":
-        viewStyle(
-          ~borderTopWidth=StyleSheet.hairlineWidth,
-          ~borderColor="#E3E4E5",
-          (),
-        ),
-      "container":
-        viewStyle(
-          ~flex=1.,
-          ~flexDirection=`row,
-          ~minHeight=50.->dp,
-          ~alignItems=`center,
-          (),
-        ),
-    })
-  );
+  Style.{
+    "wrapper":
+      viewStyle(
+        ~borderTopWidth=StyleSheet.hairlineWidth,
+        ~borderColor="#E3E4E5",
+        (),
+      ),
+    "container":
+      viewStyle(
+        ~flex=1.,
+        ~flexDirection=`row,
+        ~minHeight=50.->dp,
+        ~alignItems=`center,
+        (),
+      ),
+  }
+  ->StyleSheet.create;
 
 [@react.component]
 let make = (~children, ()) => {
