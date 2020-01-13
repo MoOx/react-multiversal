@@ -116,6 +116,12 @@ let styles =
     "flexGrow": style(~flexGrow=1., ()),
     "flexShrink": style(~flexShrink=1., ()),
     "center": style(~alignItems=`center, ~justifyContent=`center, ()),
+    "justifyCenter": style(~justifyContent=`center, ()),
+    "justifyStart": style(~justifyContent=`flexStart, ()),
+    "justifyEnd": style(~justifyContent=`flexEnd, ()),
+    "alignCenter": style(~alignItems=`center, ()),
+    "alignStart": style(~alignItems=`flexStart, ()),
+    "alignEnd": style(~alignItems=`flexEnd, ()),
     "col": style(~flexDirection=`column, ()),
     "colCenter":
       style(
