@@ -112,7 +112,7 @@ module Colors = {
 
 let styles =
   Style.{
-    "flex": style(~flex=1., ()),
+    "flex": style(~flexGrow=1., ~flexShrink=1., ()),
     "flexGrow": style(~flexGrow=1., ()),
     "flexShrink": style(~flexShrink=1., ()),
     "center": style(~alignItems=`center, ~justifyContent=`center, ()),
