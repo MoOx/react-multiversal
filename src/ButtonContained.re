@@ -24,7 +24,6 @@ let make =
       ~horizontalSpace as horizontal: SpacedView.size=M,
       ~verticalSpace as vertical: SpacedView.size=S,
       ~style as s=?,
-      ~activityIndicator=false,
       ~children,
       _,
     ) =>

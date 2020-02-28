@@ -156,10 +156,10 @@ braces@^2.3.1:
     split-string "^3.0.2"
     to-regex "^3.0.1"
 
-bs-platform@^5.2.0:
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/bs-platform/-/bs-platform-5.2.0.tgz#0ec317273daed573491c105f68ea48826a285b7a"
-  integrity sha512-miyePsOF9VbuhT5QD5E/hb+l454Fo4MAcg5xV1GJhbWxmejuF/X7mCYUsNrK1UUAaYt8hnoyFdeLG22sxVta9A==
+bs-platform@^7.2.0:
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/bs-platform/-/bs-platform-7.2.0.tgz#9b22a429313574de99e5a48e88224ae84ed64ee8"
+  integrity sha512-mgwsJ3C1nthhasoR1L3H/7+v7zuCybxI8rTrxl4aOJZfrEZSU2a3E7QTEFfB4gHpOJUvmC1/LkwQNlTTrHautg==
 
 cache-base@^1.0.1:
   version "1.0.1"
