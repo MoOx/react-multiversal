@@ -77,7 +77,8 @@ let make =
       ~color as colour="#000",
       ~color2 as colour2="#000",
       ~animateTranslateY=true,
-      ~animateBackgroundOpacity: [@bs.string] [ | `yes | `no | `delayed]=`no,
+      // using bs.int make this work, bs.string doesn't make sense as we use polyvariants in code below
+      ~animateBackgroundOpacity: [@bs.int] [ | `yes | `no | `delayed]=`yes,
       ~backgroundElement=?,
       ~style as additionalStyle=?,
       ~titleStyle as additionalTitleStyle=?,
