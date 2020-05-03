@@ -7,7 +7,7 @@ let topSpace =
   if (Platform.os === Platform.web) {
     50.; // @todo make this more precise
   } else {
-    Dimensions.get(`window)##height > 640. ? 130. : 110.;
+    Dimensions.get(`window).height > 640. ? 130. : 110.;
   };
 
 type size =
@@ -51,8 +51,7 @@ let make =
       ~size: size=Large,
       ~children=?,
     ) => {
-  let deviceWidth = Dimensions.get(`window)##width;
-  let deviceHeight = Dimensions.get(`window)##height;
+  let dimensions = Dimensions.useWindowDimensions();
   let child = {
     children
     ->Option.map(children =>
@@ -73,7 +72,7 @@ let make =
          <ImageBackgroundWithBlurFallback
            fallbackSource=?backgroundFallbackSource
            source
-           width={deviceWidth->Style.dp}
+           width={dimensions.width->Style.dp}
            height={h->Style.dp}
            style=Style.(
              arrayOption([|
@@ -90,9 +89,15 @@ let make =
                              ->Animated.Interpolation.(
                                  interpolate(
                                    config(
-                                     ~inputRange=[|-. deviceHeight +. h, 0.|],
+                                     ~inputRange=[|
+                                       -. dimensions.height +. h,
+                                       0.,
+                                     |],
                                      ~outputRange=
-                                       [|(-. deviceHeight +. h) /. 2., 0.|]
+                                       [|
+                                         (-. dimensions.height +. h) /. 2.,
+                                         0.,
+                                       |]
                                        ->fromFloatArray,
                                      ~extrapolateRight=`clamp,
                                      (),
@@ -107,9 +112,12 @@ let make =
                              ->Animated.Interpolation.(
                                  interpolate(
                                    config(
-                                     ~inputRange=[|-. deviceHeight +. h, 0.|],
+                                     ~inputRange=[|
+                                       -. dimensions.height +. h,
+                                       0.,
+                                     |],
                                      ~outputRange=
-                                       [|deviceHeight /. h, 1.|]
+                                       [|dimensions.height /. h, 1.|]
                                        ->fromFloatArray,
                                      ~extrapolateRight=`clamp,
                                      (),

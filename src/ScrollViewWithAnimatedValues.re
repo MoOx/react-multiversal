@@ -23,7 +23,7 @@ let make =
     React.useState(() => Animated.Value.create(0.));
 
   <Animated.ScrollView
-    ref=scrollViewRef
+    ref={scrollViewRef->Ref.value}
     style=Style.(arrayOption([|Some(styles##container), s|]))
     ?contentContainerStyle
     scrollEventThrottle=1

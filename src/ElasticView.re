@@ -11,7 +11,7 @@ let make =
       ~backgroundChild,
       ~children=?,
     ) => {
-  let deviceHeight = Dimensions.get(`window)##height;
+  let deviceHeight = Dimensions.useWindowDimensions().height;
   <View
     style=Style.(arrayOption([|Some(style(~height=height->dp, ())), styl|]))>
     <Animated.View

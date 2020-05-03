@@ -16,10 +16,9 @@
   dependencies:
     prop-types "^15.5.10"
 
-"@reason-react-native/safe-area-context@^0.6.0":
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/@reason-react-native/safe-area-context/-/safe-area-context-0.6.0.tgz#11174e4cbab13a6032bc25e002d9647b1fec3654"
-  integrity sha512-v8Jz86jaBd2AgXt50HZ0Srp9uHGUTRJvDgRrIrRzB11PninmrJ8ai7v8pAEADQhVT31UEWXw1R3hWPq9oVnb9g==
+"@reason-react-native/safe-area-context@https://github.com/reason-react-native/safe-area-context.git#cd84a5c":
+  version "1.0.0"
+  resolved "https://github.com/reason-react-native/safe-area-context.git#cd84a5ce204db4c107b1dd9c861f62c7829eeffd"
 
 "@samverschueren/stream-to-observable@^0.3.0":
   version "0.3.0"
@@ -1338,10 +1337,10 @@ react-is@^16.8.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.9.0.tgz#21ca9561399aad0ff1a7701c01683e8ca981edcb"
   integrity sha512-tJBzzzIgnnRfEm046qRcURvwQnZVXmuCbscxUO5RWrGTXpon2d4c8mI0D8WE6ydVIm29JiLB6+RslkIvym9Rjw==
 
-react-native-safe-area-context@^0.6.1:
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-0.6.1.tgz#6886ec1769625ae1d8a0ba8921d99166a0e2e955"
-  integrity sha512-027x9zNed2xucJq6WWvA1tyxtNs/D3mcWkTnXy+VX3F8sz8DXktd1X4hG/yqd1XW+okI6lAVAeZYnlCyWLDlSw==
+react-native-safe-area-context@^1.0.0-beta.0:
+  version "1.0.0-beta.2"
+  resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-1.0.0-beta.2.tgz#1b7e9ae27d26119d64c11e8ddeab76a15c3c621b"
+  integrity sha512-O5DeBfZ7cK/NoKiPyoN6v76poxC4IPavUyK4JQyJ+7z+zQDet64KPL4Yq7cYZ2RlSg39n4xC9Mrj309rdaRYaw==
 
 react@>=16.8.1:
   version "16.9.0"
@@ -1361,10 +1360,9 @@ read-pkg@^4.0.1:
     parse-json "^4.0.0"
     pify "^3.0.0"
 
-reason-react-native@^0.61.0:
-  version "0.61.0"
-  resolved "https://registry.yarnpkg.com/reason-react-native/-/reason-react-native-0.61.0.tgz#61579b309305b03c4cc7f44e9b6f2be3603474b4"
-  integrity sha512-HBkbeNFpIsyMZw0jj0YutX1RsujRfwhAtcxxN5tK9W8lClUedaUxzi5pIqmf6XsE02/23TOWh9tNXS0ltM8S2A==
+"reason-react-native@https://github.com/reason-react-native/reason-react-native.git#e91e045":
+  version "0.61.1"
+  resolved "https://github.com/reason-react-native/reason-react-native.git#e91e04571d2ac060d4a373841f4f244444018ad2"
 
 reason-react@^0.7.0:
   version "0.7.0"

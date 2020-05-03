@@ -84,13 +84,13 @@ let make =
       ~titleStyle as additionalTitleStyle=?,
       ~textStyle as additionalTextStyle=?,
     ) => {
-  let insets = ReactNativeSafeAreaContext.useSafeArea();
+  let insets = ReactNativeSafeAreaContext.useSafeAreaInsets();
   let safeAreaTopStyle =
     Style.(
       safeArea
         ? style(
-            ~height=(size +. insets##top)->dp,
-            ~paddingTop=insets##top->dp,
+            ~height=(size +. insets.top)->dp,
+            ~paddingTop=insets.top->dp,
             (),
           )
         : style()
