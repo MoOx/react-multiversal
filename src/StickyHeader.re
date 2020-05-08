@@ -63,6 +63,11 @@ type sideArgs = {
   color: Color.t,
 };
 
+type animateBackgroundOpacity =
+  | True
+  | False
+  | Delayed;
+
 [@react.component]
 let make =
     (
@@ -77,8 +82,7 @@ let make =
       ~color as colour="#000",
       ~color2 as colour2="#000",
       ~animateTranslateY=true,
-      // using bs.int make this work, bs.string doesn't make sense as we use polyvariants in code below
-      ~animateBackgroundOpacity: [@bs.int] [ | `yes | `no | `delayed]=`yes,
+      ~animateBackgroundOpacity: animateBackgroundOpacity=True,
       ~backgroundElement=?,
       ~style as additionalStyle=?,
       ~titleStyle as additionalTitleStyle=?,
@@ -228,7 +232,7 @@ let make =
     {backgroundElement
      ->Option.map(backgroundElement =>
          switch (animateBackgroundOpacity) {
-         | `yes =>
+         | True =>
            <Animated.View
              style=Style.(
                array([|
@@ -239,7 +243,7 @@ let make =
              )>
              backgroundElement
            </Animated.View>
-         | `delayed =>
+         | Delayed =>
            <Animated.View
              style=Style.(
                array([|
@@ -250,7 +254,7 @@ let make =
              )>
              backgroundElement
            </Animated.View>
-         | `no =>
+         | False =>
            <View
              style=Style.(
                array([|StyleSheet.absoluteFill, safeAreaTopStyle|])
