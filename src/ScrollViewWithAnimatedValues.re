@@ -6,7 +6,7 @@ type renderArgs = {
   scrollXAnimatedValue: Animated.Value.t,
   scrollYAnimatedValue: Animated.Value.t,
   scrollViewRef:
-    React.Ref.t(Js.Nullable.t(ReactNative.Animated.ScrollView.element)),
+    React.ref(Js.Nullable.t(ReactNative.Animated.ScrollView.element)),
 };
 
 [@react.component]

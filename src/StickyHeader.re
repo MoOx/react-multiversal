@@ -270,16 +270,16 @@ let make =
            key={Predefined.hairlineWidth->Js.Float.toString}
            // key=Predefined.hairlineWidth is to avoid SSR/hydrate issue
            style=Style.(
-             listOption([
+             arrayOption([|
                Some(styles##textWrapper),
                Some(animatedDelayedOpacityToVisible),
                additionalTitleStyle,
                //  safeAreaTopStyle,
-             ])
+             |])
            )>
            <Text
              style=Style.(
-               listOption([Some(styles##text), additionalTextStyle])
+               arrayOption([|Some(styles##text), additionalTextStyle|])
              )
              numberOfLines=1>
              title->React.string
