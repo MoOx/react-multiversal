@@ -9,7 +9,7 @@ let hitSlop =
 let make = (~color="#000", ~onPress, ~children) => {
   <TouchableOpacity onPress={_ => onPress()} hitSlop>
     <Row.Center>
-      <Animated.Text style=Style.(style(~color, ()))>
+      <Animated.Text allowFontScaling=false style=Style.(style(~color, ()))>
         ...children
       </Animated.Text>
     </Row.Center>
