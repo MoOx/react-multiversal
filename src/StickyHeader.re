@@ -278,10 +278,11 @@ let make =
              |])
            )>
            <Text
+             allowFontScaling=false
+             numberOfLines=1
              style=Style.(
                arrayOption([|Some(styles##text), additionalTextStyle|])
-             )
-             numberOfLines=1>
+             )>
              title->React.string
            </Text>
          </Animated.View>
