@@ -16,10 +16,10 @@
   dependencies:
     prop-types "^15.5.10"
 
-"@reason-react-native/safe-area-context@3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@reason-react-native/safe-area-context/-/safe-area-context-3.0.0.tgz#9a50e5b034229441eee98477bc32b3c2444ffbfd"
-  integrity sha512-Kk6BgKesRsL9yGVFrs9z4Cv4InyTV81e6Wx5W7hksuZum1rJ+36ngOqOTKgt/XGj/jEwFF9YhGBUYH+naD0cFw==
+"@reason-react-native/safe-area-context@^3.1.0":
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/@reason-react-native/safe-area-context/-/safe-area-context-3.1.1.tgz#24646f8879fa4a3ce8be8007b4955cfde432b185"
+  integrity sha512-N5i/XFVI9nN2/35WWGtyzYUT4C/o5IriRSbBNGmnWsRUy79pIpIeahmuwqWhmjnwGzwDzTjFTio2yVxKRITt7g==
 
 "@samverschueren/stream-to-observable@^0.3.0":
   version "0.3.0"
@@ -156,10 +156,10 @@ braces@^2.3.1:
     split-string "^3.0.2"
     to-regex "^3.0.1"
 
-bs-platform@^7.3.0:
-  version "7.3.2"
-  resolved "https://registry.yarnpkg.com/bs-platform/-/bs-platform-7.3.2.tgz#301f5c9b4e8cf5713cb60ca22e145e56e793affe"
-  integrity sha512-seJL5g4anK9la4erv+B2o2sMHQCxDF6OCRl9en3hbaUos/S3JsusQ0sPp4ORsbx5eXfHLYBwPljwKXlgpXtsgQ==
+bs-platform@^9.0.0:
+  version "9.0.2"
+  resolved "https://registry.yarnpkg.com/bs-platform/-/bs-platform-9.0.2.tgz#a6eac70eb8924a322556dacaccbfbc9b2a0d3a37"
+  integrity sha512-Ye9JqJ4Oa7mcjjoOVRYI8Uc2Cf8N7jQLWDcdUplY7996d/YErSR7WitmV7XnSwr4EvdrbwjEsg1NxNjUQv3ChA==
 
 cache-base@^1.0.1:
   version "1.0.1"
@@ -1342,15 +1342,15 @@ read-pkg@^4.0.1:
     parse-json "^4.0.0"
     pify "^3.0.0"
 
-reason-react-native@^0.62.0:
-  version "0.62.0"
-  resolved "https://registry.yarnpkg.com/reason-react-native/-/reason-react-native-0.62.0.tgz#0f10e442a5bbb1a05124c9f595fed79673b0218a"
-  integrity sha512-tq13KJHk0D0otBviH9DJvejdcncxhCu8qR+AAiOWq4oQBC0cm9Zrl6+h+Wi+80pc9Cbe8KyMhcZh9N7e/X2dFA==
+reason-react-native@^0.63.0:
+  version "0.63.5"
+  resolved "https://registry.yarnpkg.com/reason-react-native/-/reason-react-native-0.63.5.tgz#8ccdeac38e8c2ee1215b94eb155a80bfb3ecfb34"
+  integrity sha512-HB12mIEeYnYClme4J1ytRgz0VZsKbBmV45qq+e0k82TUKqv2KFx0c6UF2+0VJDiFRTmcuZRbd9qqSvK0moUKeg==
 
-reason-react@^0.8.0:
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/reason-react/-/reason-react-0.8.0.tgz#a55143f95a872596c92b54595e7904c03ee7c9db"
-  integrity sha512-97AfK3eCF6vfP8rnbq3k6GgXsZt//OiPMINTUk5luJ8W0Wt/JaYsDG6eWKP8Zx3gPpxSU1EPjB1pUm6o6fBnFA==
+reason-react@^0.9.0:
+  version "0.9.1"
+  resolved "https://registry.yarnpkg.com/reason-react/-/reason-react-0.9.1.tgz#30a887158200b659aa03e2d75ff4cc54dc462bb0"
+  integrity sha512-nlH0O2TDy9KzOLOW+vlEQk4ExHOeciyzFdoLcsmmiit6hx6H5+CVDrwJ+8aiaLT/kqK5xFOjy4PS7PftWz4plA==
 
 regenerator-runtime@^0.13.2:
   version "0.13.3"
