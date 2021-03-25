@@ -12,33 +12,33 @@
   ],
   "scripts": {
     "format:most": "prettier --write \"**/*.{md,json,js,css}\"",
-    "format:re": "find . -name \"*.re\" -or -name \"*.rei\" | grep -v \"node_modules\" | xargs bsrefmt --in-place",
-    "format": "yarn format:most && yarn format:re",
-    "re:start": "bsb -make-world -w",
-    "re:build": "bsb -make-world",
-    "re:clean-build": "bsb -clean-world -make-world",
-    "start": "yarn re:start",
-    "build": "yarn re:build",
-    "test": "yarn re:clean-build"
+    "format:res": "find . -type f \\( -name \"*.res\" -or -name \"*.resi\" \\) -exec sh -c 'bsc -format $0 > $0.tmp && mv $0.tmp $0' {} \\;",
+    "format": "yarn format:most && yarn format:res",
+    "res:start": "bsb -make-world -w",
+    "res:build": "bsb -make-world",
+    "res:clean-build": "bsb -clean-world -make-world",
+    "start": "yarn res:start",
+    "build": "yarn res:build",
+    "test": "yarn res:clean-build"
   },
   "peerDependencies": {
     "@react-native-community/blur": "^3.4.1",
     "@reason-react-native/safe-area-context": "^3.1.0",
     "bs-platform": "^9.0.0",
     "react-native-safe-area-context": "^3.0.0",
-    "reason-react-native": "^0.63.0",
-    "reason-react": "^0.9.0"
+    "reason-react": "^0.9.0",
+    "reason-react-native": "^0.63.0"
   },
   "devDependencies": {
     "@react-native-community/blur": "^3.4.1",
     "@reason-react-native/safe-area-context": "^3.1.0",
     "bs-platform": "^9.0.0",
-    "husky": "^1.3.0",
-    "lint-staged": "^8.1.0",
-    "prettier": "^1.18.0",
+    "lint-staged": "^10.0.0",
+    "prettier": "^2.0.0",
     "react-native-safe-area-context": "^3.0.0",
+    "reason-react": "^0.9.0",
     "reason-react-native": "^0.63.0",
-    "reason-react": "^0.9.0"
+    "simple-git-hooks": "^2.2.0"
   },
   "prettier": {
     "trailingComma": "all",
@@ -46,17 +46,13 @@
   },
   "lint-staged": {
     "*.{md,json,js,css}": [
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ],
-    "*.{re,rei}": [
-      "bsrefmt --in-place",
-      "git add"
+    "*.{res,resi}": [
+      "./resfmt-in-place.sh"
     ]
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+  "simple-git-hooks": {
+    "pre-commit": "lint-staged"
   }
 }

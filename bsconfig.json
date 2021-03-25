@@ -1,7 +1,6 @@
 {
   "name": "react-multiversal",
   "namespace": true,
-  "refmt": 3,
   "reason": {
     "react-jsx": 3
   },
