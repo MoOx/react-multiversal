@@ -32,7 +32,22 @@ let styles = {
 
 let prerenderedGradient =
   <View style=StyleSheet.absoluteFill>
-    <GradientLinear height="100%" width="100%" opacity2="0.5" />
+    <GradientLinear
+      height="100%"
+      width="100%"
+      stops={[
+        {
+          offset: 0.->Style.pct,
+          stopColor: "#000",
+          stopOpacity: "0",
+        },
+        {
+          offset: 100.->Style.pct,
+          stopColor: "#000",
+          stopOpacity: "0.5",
+        },
+      ]}
+    />
   </View>
 
 @react.component

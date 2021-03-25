@@ -1,18 +1,42 @@
+open Belt
+open ReactNative
+open ReactNativeSvg
+
+type stop = {
+  offset: size,
+  stopColor: string,
+  stopOpacity: string,
+}
+
+let transparentToBlack = [
+  {
+    offset: 0.->Style.pct,
+    stopColor: "#000",
+    stopOpacity: "0",
+  },
+  {
+    offset: 100.->Style.pct,
+    stopColor: "#000",
+    stopOpacity: "1",
+  },
+]
+
 @react.component
-let make = (
-  ~width,
-  ~height,
-  ~color1="rgb(0,0,0)",
-  ~opacity1="0",
-  ~color2="rgb(0,0,0)",
-  ~opacity2="1",
-) =>
-  <svg width height>
-    <defs>
-      <linearGradient id="grad" x1="0" y1="0" x2="0" y2=height>
-        <stop offset="0%" stopColor=color1 stopOpacity=opacity1 />
-        <stop offset="100%" stopColor=color2 stopOpacity=opacity2 />
-      </linearGradient>
-    </defs>
-    <rect x="0" y="0" width height fill="url(#grad)" />
-  </svg>
+let make = (~width: size, ~height: size, ~stops: array<stop>) =>
+  <Svg width height>
+    <Defs>
+      <LinearGradient id="grad" x1={0.->Style.dp} y1={0.->Style.dp} x2={0.->Style.dp} y2=height>
+        {stops
+        ->Array.map(stop =>
+          <Stop
+            key={stop.offset->Obj.magic ++ (stop.stopColor ++ stop.stopOpacity)}
+            offset=stop.offset
+            stopColor=stop.stopColor
+            stopOpacity=stop.stopOpacity
+          />
+        )
+        ->React.array}
+      </LinearGradient>
+    </Defs>
+    <Rect x={0.->Style.dp} y={0.->Style.dp} width height fill="url(#grad)" />
+  </Svg>
