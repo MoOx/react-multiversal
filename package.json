@@ -11,6 +11,7 @@
     "!lib/ocaml"
   ],
   "scripts": {
+    "prepare": "yarn simple-git-hooks",
     "format:most": "prettier --write \"**/*.{md,json,js,css}\"",
     "format:res": "find . -type f \\( -name \"*.res\" -or -name \"*.resi\" \\) -exec sh -c 'bsc -format $0 > $0.tmp && mv $0.tmp $0' {} \\;",
     "format": "yarn format:most && yarn format:res",
