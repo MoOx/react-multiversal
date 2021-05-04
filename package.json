@@ -13,34 +13,34 @@
   "scripts": {
     "prepare": "yarn simple-git-hooks",
     "format:most": "prettier --write \"**/*.{md,json,js,css}\"",
-    "format:res": "find . -type f \\( -name \"*.res\" -or -name \"*.resi\" \\) -exec sh -c 'bsc -format $0 > $0.tmp && mv $0.tmp $0' {} \\;",
+    "format:res": "rescript format -all",
     "format": "yarn format:most && yarn format:res",
-    "res:start": "bsb -make-world -w",
-    "res:build": "bsb -make-world",
-    "res:clean-build": "bsb -clean-world -make-world",
+    "res:start": "rescript build -w",
+    "res:clean": "rescript clean",
+    "res:build": "rescript build",
     "start": "yarn res:start",
     "build": "yarn res:build",
-    "test": "yarn res:clean-build"
+    "test": "yarn res:clean && yarn res:build"
   },
   "peerDependencies": {
     "@react-native-community/blur": "^3.4.1",
-    "@reason-react-native/safe-area-context": "^3.1.0",
-    "@reason-react-native/svg": "^12.1.6-0.63",
-    "bs-platform": "^9.0.0",
-    "reason-react": "^0.9.0",
-    "reason-react-native": "^0.63.0"
+    "@rescript-react-native/safe-area-context": "^3.1.0",
+    "@rescript-react-native/svg": "^12.1.6-0.63",
+    "@rescript/react": "^0.10.0",
+    "rescript-react-native": "^0.64.3",
+    "rescript": "^9.1.0"
   },
   "devDependencies": {
     "@react-native-community/blur": "^3.4.1",
-    "@reason-react-native/safe-area-context": "^3.1.0",
-    "@reason-react-native/svg": "^12.1.6-0.63",
-    "bs-platform": "^9.0.0",
+    "@rescript-react-native/safe-area-context": "^3.1.0",
+    "@rescript-react-native/svg": "^12.1.6-0.63",
+    "@rescript/react": "^0.10.0",
     "lint-staged": "^10.0.0",
     "prettier": "^2.0.0",
     "react-native-safe-area-context": "^3.0.0",
     "react-native-svg": "^12.1.0",
-    "reason-react": "^0.9.0",
-    "reason-react-native": "^0.63.0",
+    "rescript-react-native": "^0.64.3",
+    "rescript": "^9.1.0",
     "simple-git-hooks": "^2.2.0"
   },
   "prettier": {
@@ -48,12 +48,8 @@
     "proseWrap": "always"
   },
   "lint-staged": {
-    "*.{md,json,js,css}": [
-      "prettier --write"
-    ],
-    "*.{res,resi}": [
-      "./resfmt-in-place.sh"
-    ]
+    "*.{md,json,js,css}": "prettier --write",
+    "*.{res,resi}": "rescript format"
   },
   "simple-git-hooks": {
     "pre-commit": "lint-staged"

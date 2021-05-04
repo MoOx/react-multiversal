@@ -14,9 +14,9 @@ let styles = {
 @react.component
 let make = (~style as s=?) =>
   <View
+  // key=Predefined.hairlineWidth is to avoid SSR/hydrate issue
     key={Predefined.hairlineWidth->Js.Float.toString}
-    style=// key=Predefined.hairlineWidth is to avoid SSR/hydrate issue
-    {
+    style={
       open Style
       arrayOption([Some(styles["separator"]), s])
     }

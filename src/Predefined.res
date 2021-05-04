@@ -111,7 +111,7 @@ let styles = {
   open Style
   {
     "flex": style(~flexGrow=1., ~flexShrink=1., ()),
-    "flex1": style(~flexGrow=1., ~flexShrink=1., ~flexBasis=0.->Style.pt, ()),
+    "flex1": style(~flexGrow=1., ~flexShrink=1., ~flexBasis=0.->Style.dp, ()),
     "flexGrow": style(~flexGrow=1., ()),
     "flexShrink": style(~flexShrink=1., ()),
     "center": style(~alignItems=#center, ~justifyContent=#center, ()),

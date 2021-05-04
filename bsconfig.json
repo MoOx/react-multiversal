@@ -17,9 +17,9 @@
   ],
   "bsc-flags": ["-bs-no-version-header"],
   "bs-dependencies": [
-    "@reason-react-native/safe-area-context",
-    "@reason-react-native/svg",
-    "reason-react-native",
-    "reason-react"
+    "@rescript-react-native/safe-area-context",
+    "@rescript-react-native/svg",
+    "@rescript/react",
+    "rescript-react-native"
   ]
 }

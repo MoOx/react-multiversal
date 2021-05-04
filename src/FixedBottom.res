@@ -14,34 +14,30 @@ let make = (~scrollYAnimatedValue=?, ~children, _) => {
   let (state, dispatch) = React.useReducer((state, action) =>
     switch action {
     | AnimateIn =>
-      {
-        open Animated
-        start(
-          spring(
-            state.animation,
-            {
-              open Value.Spring
-              config(~toValue=fromRawValue(0.), ~useNativeDriver=true, ())
-            },
-          ),
-          (),
-        )
-      }
+      open Animated
+      start(
+        spring(
+          state.animation,
+          {
+            open Value.Spring
+            config(~toValue=fromRawValue(0.), ~useNativeDriver=true, ())
+          },
+        ),
+        (),
+      )
       state
     | AnimateOut =>
-      {
-        open Animated
-        start(
-          spring(
-            state.animation,
-            {
-              open Value.Spring
-              config(~toValue=fromRawValue(200.), ~useNativeDriver=true, ())
-            },
-          ),
-          (),
-        )
-      }
+      open Animated
+      start(
+        spring(
+          state.animation,
+          {
+            open Value.Spring
+            config(~toValue=fromRawValue(200.), ~useNativeDriver=true, ())
+          },
+        ),
+        (),
+      )
       state
     }
   , {animation: Animated.Value.create(Predefined.isClient ? 200. : 0.)})

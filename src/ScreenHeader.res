@@ -33,8 +33,8 @@ let styles = {
 let prerenderedGradient =
   <View style=StyleSheet.absoluteFill>
     <GradientLinear
-      height="100%"
-      width="100%"
+      height={100.->Style.pct}
+      width={100.->Style.pct}
       stops={[
         {
           offset: 0.->Style.pct,
@@ -142,7 +142,7 @@ let make = (
                 ),
           ])
         }>
-        {backgroundGradient ? prerenderedGradient : ReasonReact.null} child
+        {backgroundGradient ? prerenderedGradient : React.null} child
       </ImageBackgroundWithBlurFallback>
     )
     ->Option.getWithDefault(child)}
@@ -157,7 +157,7 @@ let make = (
       //   animateBackgroundOpacity=animateStickyBackgroundOpacity
       // />
       titlePre
-      ->Option.map(titlePre => <TitlePre> {titlePre->ReasonReact.string} </TitlePre>)
+      ->Option.map(titlePre => <TitlePre> {titlePre->React.string} </TitlePre>)
       ->Option.getWithDefault(React.null)
     }
     <Text
@@ -177,7 +177,7 @@ let make = (
           colour->Option.map(colour => style(~color=colour, ())),
         ])
       }>
-      {title->ReasonReact.string}
+      {title->React.string}
     </Text>
     <Spacer size=XS />
   </SpacedView>
