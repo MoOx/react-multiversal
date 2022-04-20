@@ -22,10 +22,17 @@ let transparentToBlack = [
 ]
 
 @react.component
-let make = (~width: size, ~height: size, ~stops: array<stop>) =>
+let make = (~width: size, ~height: size, ~stops: array<stop>) => {
+  let id =
+    stops
+    ->Array.map(stop => {
+      "o:" ++ stop.offset->Obj.magic ++ "c:" ++ stop.stopColor ++ "o:" ++ stop.stopOpacity
+    })
+    ->Array.joinWith("::", s => s)
+
   <Svg width height>
     <Defs>
-      <LinearGradient id="grad" x1={0.->Style.dp} y1={0.->Style.dp} x2={0.->Style.dp} y2=height>
+      <LinearGradient id x1={0.->Style.dp} y1={0.->Style.dp} x2={0.->Style.dp} y2=height>
         {stops
         ->Array.map(stop =>
           <Stop
@@ -38,5 +45,6 @@ let make = (~width: size, ~height: size, ~stops: array<stop>) =>
         ->React.array}
       </LinearGradient>
     </Defs>
-    <Rect x={0.->Style.dp} y={0.->Style.dp} width height fill="url(#grad)" />
+    <Rect x={0.->Style.dp} y={0.->Style.dp} width height fill={"url(#" ++ id ++ ")"} />
   </Svg>
+}
