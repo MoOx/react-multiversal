@@ -15,9 +15,9 @@
 
 ## Requirements
 
-- `reason-react`
-- `reason-react-native`
-- `@reason-react-native/safe-area-context`
+- `rescript-react`
+- `rescript-react-native`
+- `@rescript-react-native/safe-area-context`
 
 ## Install
 
@@ -34,9 +34,9 @@ yarn add https://github.com/MoOx/react-multiversal
 {
   //...
   "bs-dependencies": [
-    "reason-react",
-    "reason-react-native",
-    "@reason-react-native/safe-area-context",
+    "rescript-react",
+    "rescript-react-native",
+    "@rescript-react-native/safe-area-context",
     // ...
 +    "react-multiversal"
   ],

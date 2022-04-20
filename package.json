@@ -11,47 +11,43 @@
     "!lib/ocaml"
   ],
   "scripts": {
-    "prepare": "yarn simple-git-hooks",
     "format:most": "prettier --write \"**/*.{md,json,js,css}\"",
     "format:res": "rescript format -all",
-    "format": "yarn format:most && yarn format:res",
+    "format": "npm run format:most && npm run format:res",
     "res:start": "rescript build -w",
     "res:clean": "rescript clean",
     "res:build": "rescript build",
-    "start": "yarn res:start",
-    "build": "yarn res:build",
-    "test": "yarn res:clean && yarn res:build"
+    "start": "npm run res:start",
+    "build": "npm run res:build",
+    "test": "npm run res:clean && npm run res:build"
+  },
+  "engines": {
+    "npm": ">=8.7.0"
+  },
+  "overrides": {
+    "react": "18.0.0"
   },
   "peerDependencies": {
-    "@react-native-community/blur": "^3.4.1",
-    "@rescript-react-native/safe-area-context": "^3.1.0",
-    "@rescript-react-native/svg": "^12.1.6-0.63",
-    "@rescript/react": "^0.10.0",
-    "rescript-react-native": "^0.64.3",
-    "rescript": "^9.1.0"
+    "@react-native-community/blur": ">=3.6.0",
+    "@rescript-react-native/safe-area-context": ">=4.0.0",
+    "@rescript-react-native/svg": ">=12.1.0",
+    "@rescript/react": ">=0.10.0",
+    "rescript-react-native": ">=0.68.1",
+    "rescript": ">=9.1.0"
   },
   "devDependencies": {
-    "@react-native-community/blur": "^3.4.1",
-    "@rescript-react-native/safe-area-context": "^3.1.0",
-    "@rescript-react-native/svg": "^12.1.6-0.63",
+    "@react-native-community/blur": "^3.6.0",
+    "@rescript-react-native/safe-area-context": "^4.0.0",
+    "@rescript-react-native/svg": "^12.1.9",
     "@rescript/react": "^0.10.0",
-    "lint-staged": "^10.0.0",
     "prettier": "^2.0.0",
-    "react-native-safe-area-context": "^3.0.0",
+    "react-native-safe-area-context": "^4.0.0",
     "react-native-svg": "^12.1.0",
-    "rescript-react-native": "^0.64.3",
-    "rescript": "^9.1.0",
-    "simple-git-hooks": "^2.2.0"
+    "rescript-react-native": "^0.68.1",
+    "rescript": "^9.1.0"
   },
   "prettier": {
     "trailingComma": "all",
     "proseWrap": "always"
-  },
-  "lint-staged": {
-    "*.{md,json,js,css}": "prettier --write",
-    "*.{res,resi}": "rescript format"
-  },
-  "simple-git-hooks": {
-    "pre-commit": "lint-staged"
   }
 }
