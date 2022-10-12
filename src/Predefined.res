@@ -1,6 +1,6 @@
 open ReactNative
 
-let isClient: bool = %raw("typeof window !== \"undefined\"")
+let isClient: bool = %raw(`typeof window !== "undefined"`)
 
 // https://github.com/necolas/react-native-web/pull/1351
 let hairlineWidth = isClient
