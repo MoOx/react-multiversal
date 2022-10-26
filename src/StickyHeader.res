@@ -105,10 +105,10 @@ let make = (
             style(
               ~transform=[
                 translateY(
-                  ~translateY=scrollYAnimatedValue
-                  ->{
+                  ~translateY={
                     open Animated.Interpolation
                     interpolate(
+                      scrollYAnimatedValue,
                       config(
                         ~inputRange=[0., 1.],
                         ~outputRange=[0., 1.]->fromFloatArray,
@@ -117,18 +117,17 @@ let make = (
                         (),
                       ),
                     )
-                  }
-                  ->Animated.StyleProp.float,
+                  }->Animated.StyleProp.float,
                 ),
               ],
               (),
             )
           }
       let animatedOpacityToVisible = style(
-        ~opacity=scrollYAnimatedValue
-        ->{
+        ~opacity={
           open Animated.Interpolation
           interpolate(
+            scrollYAnimatedValue,
             config(
               ~inputRange=[0., scrollOffsetYGap],
               ~outputRange=[0., 1.]->fromFloatArray,
@@ -138,8 +137,7 @@ let make = (
               (),
             ),
           )
-        }
-        ->Animated.StyleProp.float,
+        }->Animated.StyleProp.float,
         (),
       )
 
@@ -147,10 +145,10 @@ let make = (
         scrollOffsetY
         ->Option.map(scrollOffsetY =>
           style(
-            ~opacity=scrollYAnimatedValue
-            ->{
+            ~opacity={
               open Animated.Interpolation
               interpolate(
+                scrollYAnimatedValue,
                 config(
                   ~inputRange=[scrollOffsetY -. size -. scrollOffsetYGap, scrollOffsetY -. size],
                   ~outputRange=[0., 1.]->fromFloatArray,
@@ -160,8 +158,7 @@ let make = (
                   (),
                 ),
               )
-            }
-            ->Animated.StyleProp.float,
+            }->Animated.StyleProp.float,
             (),
           )
         )
@@ -170,10 +167,10 @@ let make = (
         scrollOffsetY
         ->Option.map(scrollOffsetY =>
           style(
-            ~opacity=scrollYAnimatedValue
-            ->{
+            ~opacity={
               open Animated.Interpolation
               interpolate(
+                scrollYAnimatedValue,
                 config(
                   ~inputRange=[scrollOffsetY -. size -. scrollOffsetYGap, scrollOffsetY -. size],
                   ~outputRange=[1., 0.]->fromFloatArray,
@@ -183,8 +180,7 @@ let make = (
                   (),
                 ),
               )
-            }
-            ->Animated.StyleProp.float,
+            }->Animated.StyleProp.float,
             (),
           )
         )
@@ -254,7 +250,7 @@ let make = (
     {title
     ->Option.map(title =>
       <Animated.View
-      // key=Predefined.hairlineWidth is to avoid SSR/hydrate issue
+        // key=Predefined.hairlineWidth is to avoid SSR/hydrate issue
         key={Predefined.hairlineWidth->Js.Float.toString}
         style={
           open Style

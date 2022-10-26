@@ -26,10 +26,10 @@ let make = (
             ~height=height->Style.dp,
             ~transform=[
               translateY(
-                ~translateY=scrollYAnimatedValue
-                ->{
+                ~translateY={
                   open Animated.Interpolation
                   interpolate(
+                    scrollYAnimatedValue,
                     config(
                       ~inputRange=[-.deviceHeight +. height, 0.],
                       ~outputRange=[(-.deviceHeight +. height) /. 2., 0.]->fromFloatArray,
@@ -37,14 +37,13 @@ let make = (
                       (),
                     ),
                   )
-                }
-                ->Animated.StyleProp.float,
+                }->Animated.StyleProp.float,
               ),
               scale(
-                ~scale=scrollYAnimatedValue
-                ->{
+                ~scale={
                   open Animated.Interpolation
                   interpolate(
+                    scrollYAnimatedValue,
                     config(
                       ~inputRange=[-.deviceHeight +. height, 0.],
                       ~outputRange=[deviceHeight /. height, 1.]->fromFloatArray,
@@ -52,8 +51,7 @@ let make = (
                       (),
                     ),
                   )
-                }
-                ->Animated.StyleProp.float,
+                }->Animated.StyleProp.float,
               ),
             ],
             (),

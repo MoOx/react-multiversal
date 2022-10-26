@@ -107,10 +107,10 @@ let make = (
                   style(
                     ~transform=[
                       translateY(
-                        ~translateY=scrollYAnimatedValue
-                        ->{
+                        ~translateY={
                           open Animated.Interpolation
                           interpolate(
+                            scrollYAnimatedValue,
                             config(
                               ~inputRange=[-.dimensions.height +. h, 0.],
                               ~outputRange=[(-.dimensions.height +. h) /. 2., 0.]->fromFloatArray,
@@ -118,14 +118,13 @@ let make = (
                               (),
                             ),
                           )
-                        }
-                        ->Animated.StyleProp.float,
+                        }->Animated.StyleProp.float,
                       ),
                       scale(
-                        ~scale=scrollYAnimatedValue
-                        ->{
+                        ~scale={
                           open Animated.Interpolation
                           interpolate(
+                            scrollYAnimatedValue,
                             config(
                               ~inputRange=[-.dimensions.height +. h, 0.],
                               ~outputRange=[dimensions.height /. h, 1.]->fromFloatArray,
@@ -133,8 +132,7 @@ let make = (
                               (),
                             ),
                           )
-                        }
-                        ->Animated.StyleProp.float,
+                        }->Animated.StyleProp.float,
                       ),
                     ],
                     (),
