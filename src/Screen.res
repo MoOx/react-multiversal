@@ -14,14 +14,14 @@ let styles = {
   }
 }->StyleSheet.create
 
-let make = (~scrollYAnimatedValue=?, ~style as s=?, ~children) =>
+let make = (~scrollYAnimatedValue=?, ~style as styl=?, ~children) =>
   <View
     style={
       open Style
       arrayOption([
         Some(styles["container"]),
         scrollYAnimatedValue->Option.map(_ => style(~borderRadius=10., ())),
-        s,
+        styl,
       ])
     }>
     {children}

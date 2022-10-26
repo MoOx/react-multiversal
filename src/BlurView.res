@@ -27,14 +27,14 @@ module WebBlurView = {
   ) => React.element = "unstable_createElement"
 
   @react.component
-  let make = (~backdropFilter=?, ~style as s=?, ~children=?) =>
+  let make = (~backdropFilter=?, ~style as st=?, ~children=?) =>
     unstable_createElement(
       "div",
       {
         "style": Some({
           open Style
           arrayOption([
-            s,
+            st,
             backdropFilter->Option.map(f =>
               unsafeStyle({
                 "webkitBackdropFilter": f,
@@ -60,9 +60,9 @@ let make = (
 ) => {
   let child = children->Option.getWithDefault(React.null)
   switch Platform.os {
-  | os if os == Platform.ios || os == Platform.android =>
+  | os if os == #ios || os == #android =>
     <NativeBlurView ?blurType ?blurAmount ?style> child </NativeBlurView>
-  | os if os == Platform.web => <WebBlurView ?backdropFilter ?style> child </WebBlurView>
+  | os if os == #web => <WebBlurView ?backdropFilter ?style> child </WebBlurView>
   | _ => <View ?style> child </View>
   }
 }

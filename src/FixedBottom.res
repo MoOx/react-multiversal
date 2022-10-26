@@ -46,9 +46,9 @@ let make = (~scrollYAnimatedValue=?, ~children, _) => {
     Some(() => dispatch(AnimateOut))
   })
   <div className="FixedBottom">
-    <SafeAreaView pointerEvents=#boxNone>
+    <SafeAreaView pointerEvents=#"box-none">
       <Animated.View
-        pointerEvents=#boxNone
+        pointerEvents=#"box-none"
         style={
           open Style
           style(

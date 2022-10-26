@@ -2,8 +2,6 @@ open ReactNative
 open ReactNative.Style
 
 type weight = [
-  | #bold
-  | #normal
   | #_100
   | #_200
   | #_300
@@ -52,37 +50,37 @@ let black = #_900
 // when a weight is not available, it will be mapped to the closest one
 
 module Weight = {
-  type props = {family: string, weight: weight}
+  type props = {family: string, weight: Style.fontWeight}
 
   let props = weight =>
-    if Platform.os === Platform.android {
+    if Platform.os === #android {
       switch weight {
-      | #_100 => {family: "sans-serif-thin", weight: #_100}
-      | #_200 => {family: "sans-serif-light", weight: #_200}
-      | #_300 => {family: "sans-serif-light", weight: #_300}
+      | #_100 => {family: "sans-serif-thin", weight: FontWeight._100}
+      | #_200 => {family: "sans-serif-light", weight: FontWeight._200}
+      | #_300 => {family: "sans-serif-light", weight: FontWeight._300}
       | #normal
-      | #_400 => {family: "sans-serif", weight: #_400}
-      | #_500 => {family: "sans-serif-medium", weight: #_500}
+      | #_400 => {family: "sans-serif", weight: FontWeight._400}
+      | #_500 => {family: "sans-serif-medium", weight: FontWeight._500}
       | #bold
-      | #_600 => {family: "sans-serif-medium", weight: #_600}
+      | #_600 => {family: "sans-serif-medium", weight: FontWeight._600}
       // reminder: oneplus handle sans-serif-regular / 700 != sans-serif / 700 !!
-      | #_700 => {family: "sans-serif-regular", weight: #_700}
-      | #_800 => {family: "sans-serif-bold", weight: #_700}
-      | #_900 => {family: "sans-serif-black", weight: #_900}
+      | #_700 => {family: "sans-serif-regular", weight: FontWeight._700}
+      | #_800 => {family: "sans-serif-bold", weight: FontWeight._700}
+      | #_900 => {family: "sans-serif-black", weight: FontWeight._900}
       }
     } else {
       switch weight {
-      | #_100 => {family: "System", weight: #_100}
-      | #_200 => {family: "System", weight: #_200}
-      | #_300 => {family: "System", weight: #_300}
+      | #_100 => {family: "System", weight: FontWeight._100}
+      | #_200 => {family: "System", weight: FontWeight._200}
+      | #_300 => {family: "System", weight: FontWeight._300}
       | #normal
-      | #_400 => {family: "System", weight: #_400}
-      | #_500 => {family: "System", weight: #_500}
+      | #_400 => {family: "System", weight: FontWeight._400}
+      | #_500 => {family: "System", weight: FontWeight._500}
       | #bold
-      | #_600 => {family: "System", weight: #_600}
-      | #_700 => {family: "System", weight: #_700}
-      | #_800 => {family: "System", weight: #_800}
-      | #_900 => {family: "System", weight: #_900}
+      | #_600 => {family: "System", weight: FontWeight._600}
+      | #_700 => {family: "System", weight: FontWeight._700}
+      | #_800 => {family: "System", weight: FontWeight._800}
+      | #_900 => {family: "System", weight: FontWeight._900}
       }
     }
 
@@ -116,7 +114,13 @@ let weight = {
 }->StyleSheet.create
 
 module Size = {
-  type props = {size: float, line: float, spacing: float, weight: weight, weightEm: weight}
+  type props = {
+    size: float,
+    line: float,
+    spacing: float,
+    weight: weight,
+    weightEm: weight,
+  }
   // Apple HIG for macOS
   // https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/typography/
   /* unused for now, really focused on Desktop App, which is different from Desktop Website
@@ -137,7 +141,7 @@ module Size = {
   // Apple HIG for iOS
   // https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/typography/
   module Ios = {
-    let s = v => Platform.os === Platform.ios ? v : 0.
+    let s = v => Platform.os === #ios ? v : 0.
     let largeTitle = {size: 34., line: 41., spacing: 0.40->s, weight: regular, weightEm: bold}
     let title1 = {size: 28., line: 34., spacing: 0.38->s, weight: regular, weightEm: bold}
     let title2 = {size: 22., line: 28., spacing: -0.26->s, weight: regular, weightEm: bold}

@@ -24,7 +24,13 @@ let styles = {
       ~height=100.->pct,
       (),
     ),
-    "text": textStyle(~textAlign=#center, ~width=50.->pct, ~fontSize=18., ~fontWeight=#_600, ()),
+    "text": textStyle(
+      ~textAlign=#center,
+      ~width=50.->pct,
+      ~fontSize=18.,
+      ~fontWeight=FontWeight._600,
+      (),
+    ),
     "left": viewStyle(
       ~position=#absolute,
       ~top=0.->dp,
@@ -34,7 +40,7 @@ let styles = {
       ~alignItems=#center,
       (),
     ),
-    "leftText": textStyle(~fontSize=17., ~fontWeight=#_600, ()),
+    "leftText": textStyle(~fontSize=17., ~fontWeight=FontWeight._600, ()),
     "right": viewStyle(
       ~position=#absolute,
       ~top=0.->dp,
@@ -44,7 +50,7 @@ let styles = {
       ~alignItems=#center,
       (),
     ),
-    "rightText": textStyle(~fontSize=17., ~fontWeight=#_600, ()),
+    "rightText": textStyle(~fontSize=17., ~fontWeight=FontWeight._600, ()),
   }
 }->StyleSheet.create
 
@@ -93,7 +99,7 @@ let make = (
     ->Option.map(scrollYAnimatedValue => {
       let animatedStickyTranslation = !animateTranslateY
         ? style()
-        : switch Platform.os == Platform.web {
+        : switch Platform.os == #web {
           | true => unsafeStyle({"position": "fixed"})
           | false =>
             style(

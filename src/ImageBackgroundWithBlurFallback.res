@@ -18,7 +18,7 @@ type state = {
 let make = (
   ~fallbackSource: option<Image.Source.t>=?,
   ~source: option<Image.Source.t>=?,
-  ~style as s=?,
+  ~style as styl=?,
   ~styleImage=?,
   ~width as w,
   ~height as h,
@@ -59,7 +59,7 @@ let make = (
   <Animated.View
     style={
       open Style
-      arrayOption([Some(dimStyle), s])
+      arrayOption([Some(dimStyle), styl])
     }>
     {fallbackSource
     ->Option.map(source =>

@@ -145,7 +145,7 @@ module MakeTheme = (Th: T) => {
     textOnDarkLight: Th.colors.dark.textOnDarkLight,
     textOnMain: Th.colors.dark.textOnMain,
   }
-  let colorsDynamic = if Platform.os === Platform.web {
+  let colorsDynamic = if Platform.os === #web {
     let prefix = `--${htmlKey}-theme-`
     webCss :=
       `
@@ -343,7 +343,7 @@ module MakeTheme = (Th: T) => {
   }
 
   let useTheme = (~mode as currentMode=#auto, ()): theme<'a> => {
-    let colorScheme = Appearance.useColorScheme()->Js.Null.toOption
+    let colorScheme = Appearance.useColorScheme()
     let mode = switch currentMode {
     | #auto =>
       switch colorScheme {
@@ -353,9 +353,9 @@ module MakeTheme = (Th: T) => {
     | #light => #light
     | #dark => #dark
     }
-    if currentMode === #auto && Platform.os === Platform.web {
+    if currentMode === #auto && Platform.os === #web {
       {
-        mode: mode,
+        mode,
         styles: stylesDynamic,
         colors: colorsDynamic,
       }
@@ -400,7 +400,7 @@ module StatusBar = {
     | (#dark, #lightContent) => #darkContent
     }
 
-  let isFormSheetSupported = Platform.os === Platform.ios && versionIos > "13"
+  let isFormSheetSupported = Platform.os === #ios && versionIos > "13"
 
   let formSheetSafeArea = isFormSheetSupported ? false : true
 }

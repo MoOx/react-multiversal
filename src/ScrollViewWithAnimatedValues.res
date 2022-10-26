@@ -12,7 +12,7 @@ type renderArgs = {
 }
 
 @react.component
-let make = (~style as s=?, ~contentContainerStyle=?, ~children: renderArgs => React.element) => {
+let make = (~style as styl=?, ~contentContainerStyle=?, ~children: renderArgs => React.element) => {
   let scrollViewRef = React.useRef(Js.Nullable.null)
   let (scrollXAnimatedValue, _setScrollXAnimatedValue) = React.useState(() =>
     Animated.Value.create(0.)
@@ -25,7 +25,7 @@ let make = (~style as s=?, ~contentContainerStyle=?, ~children: renderArgs => Re
     ref={scrollViewRef->Ref.value}
     style={
       open Style
-      arrayOption([Some(styles["container"]), s])
+      arrayOption([Some(styles["container"]), styl])
     }
     ?contentContainerStyle
     scrollEventThrottle=1
@@ -48,9 +48,9 @@ let make = (~style as s=?, ~contentContainerStyle=?, ~children: renderArgs => Re
     showsVerticalScrollIndicator=false
     showsHorizontalScrollIndicator=false>
     {children({
-      scrollYAnimatedValue: scrollYAnimatedValue,
-      scrollXAnimatedValue: scrollXAnimatedValue,
-      scrollViewRef: scrollViewRef,
+      scrollYAnimatedValue,
+      scrollXAnimatedValue,
+      scrollViewRef,
     })}
   </Animated.ScrollView>
 }

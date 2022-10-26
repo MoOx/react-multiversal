@@ -1,6 +1,6 @@
 open Belt
-open ReactNative
 open ReactNativeSvg
+module RNS = ReactNative.Style
 
 type stop = {
   offset: size,
@@ -10,12 +10,12 @@ type stop = {
 
 let transparentToBlack = [
   {
-    offset: 0.->Style.pct,
+    offset: 0.->RNS.pct,
     stopColor: "#000",
     stopOpacity: "0",
   },
   {
-    offset: 100.->Style.pct,
+    offset: 100.->RNS.pct,
     stopColor: "#000",
     stopOpacity: "1",
   },
@@ -32,7 +32,7 @@ let make = (~width: size, ~height: size, ~stops: array<stop>) => {
 
   <Svg width height>
     <Defs>
-      <LinearGradient id x1={0.->Style.dp} y1={0.->Style.dp} x2={0.->Style.dp} y2=height>
+      <LinearGradient id x1={0.->RNS.dp} y1={0.->RNS.dp} x2={0.->RNS.dp} y2=height>
         {stops
         ->Array.map(stop =>
           <Stop
@@ -45,6 +45,6 @@ let make = (~width: size, ~height: size, ~stops: array<stop>) => {
         ->React.array}
       </LinearGradient>
     </Defs>
-    <Rect x={0.->Style.dp} y={0.->Style.dp} width height fill={"url(#" ++ id ++ ")"} />
+    <Rect x={0.->RNS.dp} y={0.->RNS.dp} width height fill={"url(#" ++ id ++ ")"} />
   </Svg>
 }

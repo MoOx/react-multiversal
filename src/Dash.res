@@ -3,7 +3,7 @@ open ReactNative
 
 @react.component
 let make = React.memo((
-  ~style as s=?,
+  ~style as styl=?,
   ~rowStyle=#column,
   ~length,
   ~dashGap=3.,
@@ -13,9 +13,9 @@ let make = React.memo((
 ) => {
   let isRow = switch rowStyle {
   | #row => true
-  | #rowReverse => true
+  | #"row-reverse" => true
   | #column => false
-  | #columnReverse => false
+  | #"column-reverse" => false
   }
 
   let n = ceil(length /. (dashGap +. dashLength))->int_of_float
@@ -23,7 +23,7 @@ let make = React.memo((
   <View
     style={
       open Style
-      arrayOption([s, Some(viewStyle(~flexDirection=rowStyle, ()))])
+      arrayOption([styl, Some(viewStyle(~flexDirection=rowStyle, ()))])
     }>
     {Array.range(0, n - 1)
     ->Array.map(i =>

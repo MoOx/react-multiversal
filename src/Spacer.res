@@ -24,9 +24,9 @@ let size = x =>
   | Custom(value) => value
   }
 
-let makeStyle = s => {
+let makeStyle = v => {
   open Style
-  style(~width=s->dp, ~height=s->dp, ())
+  style(~width=v->dp, ~height=v->dp, ())
 }
 
 let styles = {

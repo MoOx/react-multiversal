@@ -3,7 +3,7 @@ open ReactNative
 
 // @todo
 let topSpace = // browser have their own toolbar etc, so we don't need large space
-if Platform.os === Platform.web {
+if Platform.os === #web {
   50. // @todo make this more precise
 } else if Dimensions.get(#window).height > 640. {
   130.
@@ -24,7 +24,7 @@ let containerHeight = x =>
 let styles = {
   open Style
   {
-    "container": style(~zIndex=1, ~justifyContent=#flexEnd, ()),
+    "container": style(~zIndex=1, ~justifyContent=#"flex-end", ()),
     "title": style(),
     "children": style(~zIndex=1, ()),
   }
@@ -77,7 +77,7 @@ let make = (
           open Style
           array([StyleSheet.absoluteFill, styles["children"]])
         }
-        pointerEvents=#boxNone>
+        pointerEvents=#"box-none">
         children
       </View>
     )
@@ -142,24 +142,23 @@ let make = (
                 ),
           ])
         }>
-        {backgroundGradient ? prerenderedGradient : React.null} child
+        {backgroundGradient ? prerenderedGradient : React.null}
+        child
       </ImageBackgroundWithBlurFallback>
     )
     ->Option.getWithDefault(child)}
-    {
-      // <StickyHeader
-      //   title={stickyTitle->Option.getWithDefault(title)}
-      //   scrollOffsetY={containerHeight(size)}
-      //   ?scrollYAnimatedValue
-      //   color=?colour
-      //   ?left
-      //   ?right
-      //   animateBackgroundOpacity=animateStickyBackgroundOpacity
-      // />
-      titlePre
-      ->Option.map(titlePre => <TitlePre> {titlePre->React.string} </TitlePre>)
-      ->Option.getWithDefault(React.null)
-    }
+    {// <StickyHeader
+    //   title={stickyTitle->Option.getWithDefault(title)}
+    //   scrollOffsetY={containerHeight(size)}
+    //   ?scrollYAnimatedValue
+    //   color=?colour
+    //   ?left
+    //   ?right
+    //   animateBackgroundOpacity=animateStickyBackgroundOpacity
+    // />
+    titlePre
+    ->Option.map(titlePre => <TitlePre> {titlePre->React.string} </TitlePre>)
+    ->Option.getWithDefault(React.null)}
     <Text
       style={
         open Style
@@ -170,7 +169,7 @@ let make = (
               | Medium => 28.
               | Large => 34.
               },
-              ~fontWeight=#_700,
+              ~fontWeight=FontWeight._700,
               (),
             ),
           ),

@@ -1,22 +1,22 @@
 open ReactNative
 
 @react.component
-let make = (~style as s=?, ~children) =>
+let make = (~style as styl=?, ~children) =>
   <View
     style={
       open Style
-      arrayOption([Some(Predefined.styles["row"]), s])
+      arrayOption([Some(Predefined.styles["row"]), styl])
     }>
     children
   </View>
 
 module Center = {
   @react.component
-  let make = (~style as s=?, ~children) =>
+  let make = (~style as styl=?, ~children) =>
     <View
       style={
         open Style
-        arrayOption([Some(Predefined.styles["rowCenter"]), s])
+        arrayOption([Some(Predefined.styles["rowCenter"]), styl])
       }>
       children
     </View>
@@ -24,11 +24,11 @@ module Center = {
 
 module SpaceBetween = {
   @react.component
-  let make = (~style as s=?, ~children) =>
+  let make = (~style as styl=?, ~children) =>
     <View
       style={
         open Style
-        arrayOption([Some(Predefined.styles["rowSpaceBetween"]), s])
+        arrayOption([Some(Predefined.styles["rowSpaceBetween"]), styl])
       }>
       children
     </View>
@@ -36,22 +36,22 @@ module SpaceBetween = {
 
 module Wrap = {
   @react.component
-  let make = (~style as s=?, ~children) =>
+  let make = (~style as styl=?, ~children) =>
     <View
       style={
         open Style
-        arrayOption([Some(Predefined.styles["rowWrap"]), s])
+        arrayOption([Some(Predefined.styles["rowWrap"]), styl])
       }>
       children
     </View>
 
   module Center = {
     @react.component
-    let make = (~style as s=?, ~children) =>
+    let make = (~style as styl=?, ~children) =>
       <View
         style={
           open Style
-          arrayOption([Some(Predefined.styles["rowWrapCenter"]), s])
+          arrayOption([Some(Predefined.styles["rowWrapCenter"]), styl])
         }>
         children
       </View>
@@ -59,11 +59,11 @@ module Wrap = {
 
   module SpaceBetween = {
     @react.component
-    let make = (~style as s=?, ~children) =>
+    let make = (~style as styl=?, ~children) =>
       <View
         style={
           open Style
-          arrayOption([Some(Predefined.styles["rowWrapSpaceBetween"]), s])
+          arrayOption([Some(Predefined.styles["rowWrapSpaceBetween"]), styl])
         }>
         children
       </View>
